@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: connections-service
+  neo4j:
+    uri: bolt://localhost:7687/SpringBoot-LinkedIn/neo4j
+    authentication:
+      username:
+      password:
+
+server:
+  servlet:
+    context-path: /connections
+  port: 9030
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
