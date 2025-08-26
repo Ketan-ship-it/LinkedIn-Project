@@ -52,32 +52,8 @@
 * Integrated **Netflix Eureka Server** for service discovery
 * Ensures microservices can **locate and communicate** with each other
 
----
 
-## 🏗️ Architecture Diagram
 
-```mermaid
-
-    APIGateway[🌐 API Gateway]
-    UserService[👤 User Service]
-    PostService[📝 Post Service]
-    ConnectionService[🔗 Connection Service]
-    Eureka[🔎 Eureka Server]
-
-    APIGateway --- UserService
-    APIGateway --- PostService
-    APIGateway --- ConnectionService
-    APIGateway --- Eureka
-
-    UserService --- PostService
-    PostService --- ConnectionService
-    ConnectionService --- UserService
-
-    Eureka --- UserService
-    Eureka --- PostService
-    Eureka --- ConnectionService
-    Eureka --- APIGateway
-```
 
 ---
 
