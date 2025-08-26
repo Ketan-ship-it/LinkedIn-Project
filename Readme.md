@@ -58,3 +58,5 @@
 ---
 
 ✨ This project is being developed as a **microservices-based LinkedIn clone** with focus on **authentication, scalability, and inter-service communication**.
+## Authors
+- [Ketan Ratn](https://github.com/Ketan-ship-it) - ratnketan@gmail.com   
