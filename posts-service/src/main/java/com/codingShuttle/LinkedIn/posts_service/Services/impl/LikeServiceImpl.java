@@ -3,6 +3,7 @@ package com.codingShuttle.LinkedIn.posts_service.Services.impl;
 import com.codingShuttle.LinkedIn.posts_service.Repository.LikeRepository;
 import com.codingShuttle.LinkedIn.posts_service.Repository.PostRepository;
 import com.codingShuttle.LinkedIn.posts_service.Services.likeService;
+import com.codingShuttle.LinkedIn.posts_service.auth.UserContextHolder;
 import com.codingShuttle.LinkedIn.posts_service.entity.PostLike;
 import com.codingShuttle.LinkedIn.posts_service.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,8 @@ public class LikeServiceImpl implements likeService {
 
     @Override
     @Transactional
-    public void likePost(Long postId, Long userId) {
+    public void likePost(Long postId) {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.info("Liking the post , postId : {} , userId :{}",postId , userId);
         boolean exists = postRepository.existsById(postId);
         if(!exists){
@@ -42,7 +44,8 @@ public class LikeServiceImpl implements likeService {
     }
 
     @Override
-    public void unlikePost(Long postId, Long userId) {
+    public void unlikePost(Long postId) {
+        Long userId = UserContextHolder.getCurrentUserId();
         log.info("UnLiking the post , postId : {} , userId :{}",postId , userId);
         boolean exists = postRepository.existsById(postId);
         if(!exists){

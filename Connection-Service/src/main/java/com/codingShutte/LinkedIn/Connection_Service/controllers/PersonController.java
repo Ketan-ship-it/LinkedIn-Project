@@ -4,10 +4,7 @@ import com.codingShutte.LinkedIn.Connection_Service.entity.Person;
 import com.codingShutte.LinkedIn.Connection_Service.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,9 +15,9 @@ public class PersonController {
 
     private final PersonService personService;
 
-    @GetMapping("/{userId}/first")
-    public ResponseEntity<List<Person>> getFirstDegreeConnections(@PathVariable Long userId){
-        List<Person> firstConnections = personService.getFistDegreeConnections(userId);
+    @GetMapping("/first")
+    public ResponseEntity<List<Person>> getFirstDegreeConnections(){
+        List<Person> firstConnections = personService.getFistDegreeConnections();
         return ResponseEntity.ok(firstConnections);
     }
 

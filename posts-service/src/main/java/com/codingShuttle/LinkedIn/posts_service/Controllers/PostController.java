@@ -5,10 +5,6 @@ import com.codingShuttle.LinkedIn.posts_service.DTO.PostResponseDTO;
 import com.codingShuttle.LinkedIn.posts_service.Services.impl.PostServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,12 +20,12 @@ public class PostController {
 
     @PostMapping("/createPost")
     public ResponseEntity<PostResponseDTO> createPost(@RequestBody PostCreationDTO postCreationDTO , HttpServletRequest httpServletRequest){
-        PostResponseDTO responseDTO = postService.createPost(postCreationDTO , 1L);
+        PostResponseDTO responseDTO = postService.createPost(postCreationDTO );
         return new ResponseEntity<>(responseDTO , HttpStatus.CREATED);
     }
 
-    @GetMapping("/{userId}/allPosts")
-    public ResponseEntity<List<PostResponseDTO>> getAllMyPosts(@PathVariable Long userId ){
-        return ResponseEntity.ok(postService.getAllMyPost(userId ));
+    @GetMapping("/allPosts")
+    public ResponseEntity<List<PostResponseDTO>> getAllMyPosts(){
+        return ResponseEntity.ok(postService.getAllMyPost());
     }
 }

@@ -1,5 +1,6 @@
 package com.codingShutte.LinkedIn.Connection_Service.service;
 
+import com.codingShutte.LinkedIn.Connection_Service.auth.UserContextHolder;
 import com.codingShutte.LinkedIn.Connection_Service.entity.Person;
 import com.codingShutte.LinkedIn.Connection_Service.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,9 @@ public class PersonService {
 
     private final PersonRepository personRepository;
 
-    public List<Person> getFistDegreeConnections(Long userId){
-        return personRepository.getFirstDegreeConnections(userId);
+    public List<Person> getFistDegreeConnections(){
+        Long userId = UserContextHolder.getCurrentUserId();
+        return personRepository.getFirstDegreeConnections(userId+100L);
     }
 
 }

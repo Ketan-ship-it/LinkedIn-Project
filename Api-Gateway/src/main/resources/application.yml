@@ -1,6 +1,9 @@
 server:
   port: 8080
 
+jwt:
+  secret-key: bhvdfjnvsfnsvjnsjlrfeir984h3x4cc79b237nr47rcn34cyn72cnmx2rm87y4r7n2c73mnfh3o
+
 
 spring:
   application:
@@ -21,6 +24,7 @@ spring:
             - Path=/api/v1/posts/**
           filters:
             - StripPrefix=2
+            - name : AuthenticationFilter
 
         - id: connections-service
           uri: lb://CONNECTIONS-SERVICE
@@ -28,6 +32,7 @@ spring:
             - Path=/api/v1/connections/**
           filters:
             - StripPrefix=2
+            - name: AuthenticationFilter
 
 
 eureka:
