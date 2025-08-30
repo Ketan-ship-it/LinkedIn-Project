@@ -1,5 +1,5 @@
 server:
-  port: 9010
+  port: 9040
   servlet:
     context-path: /posts
 
@@ -7,7 +7,7 @@ spring:
   application:
     name: posts-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/inventoryDB
+    url: jdbc:postgresql://localhost:5432/Postssss
     username:
     password:
     driver-class-name: org.postgresql.Driver
@@ -21,6 +21,11 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     defer-datasource-initialization: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 #  sql:
 #    init:
 #      mode: always

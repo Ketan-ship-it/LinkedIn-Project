@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.codingShuttle.LinkedIn</groupId>
-	<artifactId>posts-service</artifactId>
+	<artifactId>Posts-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>posts-service</name>
+	<name>Posts-Service</name>
 	<description>Posts service for LinkedIn</description>
 	<url/>
 	<licenses>
@@ -70,6 +70,10 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

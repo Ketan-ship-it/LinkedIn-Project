@@ -1,8 +1,8 @@
 server:
-  port: 8080
+  port: 9090
 
 jwt:
-  secret-key: bhvdfjnvsfnsvjnsjlrfeir984h3x4cc79b237nr47rcn34cyn72cnmx2rm87y4r7n2c73mnfh3o
+  secret-key:
 
 
 spring:
